@@ -226,7 +226,7 @@ export function eliminarJugador(req, res) {
 
     fs.writeFileSync(CIVS_POR_JUGADOR_PATH, JSON.stringify(data, null, 2));
     // ✅ Emitir evento de actualización
-    io.emit("jugadores_actualizados", Object.keys(data));
+    io.emit("jugadores_actualizados", Object.keys(data)); 
     res.json({ message: `Jugador '${nombre}' eliminado correctamente.` });
   } catch (error) {
     console.error("Error al eliminar jugador:", error);
